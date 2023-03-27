@@ -9,6 +9,6 @@ export class TasksService {
   constructor(private http: HttpClient) {}
 
   getTasks() {
-    return this.http.get<Itask[]>('http://localhost/3000/tasks');
+    return this.http.get<Itask[]>('http://localhost:3030/tasks');
   }
 }

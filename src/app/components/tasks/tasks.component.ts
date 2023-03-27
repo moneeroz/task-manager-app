@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Itask } from 'src/app/interfaces/itask';
+import { TasksService } from 'src/app/services/tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -8,4 +9,10 @@ import { Itask } from 'src/app/interfaces/itask';
 })
 export class TasksComponent {
   tasks!: Itask[];
+
+  constructor(private service: TasksService) {
+    service.getTasks().subscribe((results) => {
+      this.tasks = results;
+    });
+  }
 }
