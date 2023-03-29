@@ -1,17 +1,25 @@
-<div class="card w-50 mx-auto">
-  <div class="card-header bg-success text-white">
+<div class="card w-50 mx-auto mb-3">
+  <div
+    class="card-header bg-success text-white"
+    [ngClass]="{
+      'bg-secondary': task.priority_level === 'low',
+      'bg-dark': task.priority_level === 'medium',
+      'bg-warning': task.priority_level === 'high',
+      'bg-danger': task.priority_level === 'critical'
+    }"
+  >
     <h4 class="card-title">{{ task.title }}</h4>
   </div>
   <div class="card-body bg-primary text-white">
-    <p>{{ task.description }}</p>
+    <p class="h5">{{ task.description }}</p>
     <hr />
-    <h3>{{ task.task_date | date }}</h3>
+    <p class="h4">{{ task.task_date | date }}</p>
     <hr />
-    <h3>{{ task.priority_level }}</h3>
+    <p class="h4">Priority: {{ task.priority_level }}</p>
     <hr />
-    <h3>{{ task.catagory }}</h3>
+    <p class="h4">Catagory: {{ task.catagory }}</p>
     <hr />
-    <h3>{{ task.progress_level }}</h3>
+    <p class="h4">Progress: {{ task.progress_level }}</p>
     <hr />
   </div>
 </div>

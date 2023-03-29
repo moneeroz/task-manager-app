@@ -10,9 +10,9 @@ import { TasksService } from 'src/app/services/tasks.service';
 export class TasksComponent {
   tasks!: Itask[];
 
-  constructor(private service: TasksService) {
-    service.getTasks().subscribe((results) => {
-      this.tasks = results;
-    });
+  constructor(private service: TasksService) {}
+
+  ngOnInit(): void {
+    this.service.getTasks().subscribe((tasks) => (this.tasks = tasks));
   }
 }
