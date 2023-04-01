@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NewTaskComponent } from './components/new-task/new-task.component';
+
 import { TasksComponent } from './components/tasks/tasks.component';
+import { HomeComponent } from './components/home/home.component';
+import { AddTaskComponent } from './components/add-task/add-task.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/tasks', pathMatch: 'full' },
-  { path: 'tasks', component: TasksComponent, pathMatch: 'full' },
-  { path: 'new-task', component: NewTaskComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'tasks', component: TasksComponent },
+  { path: 'add-task', component: AddTaskComponent },
 ];
 
 @NgModule({

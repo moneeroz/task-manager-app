@@ -1,0 +1,99 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label class="form-label">Title</label>
+    <input type="text" class="form-control" formControlName="title" />
+    <div
+      *ngIf="titleFormControl!.touched && titleFormControl!.errors?.['required']"
+      class="alert alert-danger mt-3"
+      role="alert"
+    >
+      Title is a required feild!
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    <textarea
+      class="form-control"
+      rows="3"
+      formControlName="description"
+    ></textarea>
+    <div
+      *ngIf="descriptionFormControl!.touched && descriptionFormControl!.errors?.['required']"
+      class="alert alert-danger mt-3"
+      role="alert"
+    >
+      Description is a required feild!
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Task Date</label>
+    <input
+      type="datetime-local"
+      class="form-control"
+      formControlName="task_date"
+    />
+    <div
+      *ngIf="taskDateFormControl!.touched && taskDateFormControl!.errors?.['required']"
+      class="alert alert-danger mt-3"
+      role="alert"
+    >
+      Task Date is a required feild!
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Catagory</label>
+    <input type="text" class="form-control" formControlName="catagory" />
+
+    <div
+      *ngIf="catagoryFormControl!.touched && catagoryFormControl!.errors?.['required']"
+      class="alert alert-danger mt-3"
+      role="alert"
+    >
+      Catagory is a required feild!
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Priority Level</label>
+    <select class="form-select" formControlName="priority_level">
+      <option selected>Select Priority Level</option>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+
+    <div
+      *ngIf="priorityLevelFormControl!.touched && priorityLevelFormControl!.errors?.['required']"
+      class="alert alert-danger mt-3"
+      role="alert"
+    >
+      Priority Level is a required feild!
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Progress Level</label>
+    <select class="form-select" formControlName="progress_level">
+      <option selected>Select Progress Level</option>
+      <option value="pending">Pending</option>
+      <option value="started">Started</option>
+      <option value="completed">Completed</option>
+      <option value="critical">Critical</option>
+    </select>
+
+    <div
+      *ngIf="progressLevelFormControl!.touched && progressLevelFormControl!.errors?.['required']"
+      class="alert alert-danger mt-3"
+      role="alert"
+    >
+      Progress Level is a required feild!
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="taskForm.invalid" class="btn btn-primary">
+    Add Task
+  </button>
+</form>
