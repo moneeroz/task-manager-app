@@ -1,4 +1,4 @@
-<div class="card w-50 mx-auto mb-3">
+<div class="card d-grid col-md-10 col-lg-8 mx-auto mb-3">
   <div
     class="card-header bg-success text-white"
     [ngClass]="{
@@ -22,7 +22,11 @@
     <p class="h4">Progress: {{ task.progress_level }}</p>
     <hr />
 
-    <button href="" class="btn btn-dark me-2">Edit Task</button>
-    <button href="" class="btn btn-dark">Delete Task</button>
+    <button [routerLink]="['/update-task', task.id]" class="btn btn-dark me-2">
+      Edit Task
+    </button>
+    <button (click)="onDelete(task.id)" class="btn btn-dark">
+      Delete Task
+    </button>
   </div>
 </div>

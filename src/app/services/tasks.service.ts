@@ -14,11 +14,15 @@ export class TasksService {
     return this.http.get<Itask[]>(this.apiUrl);
   }
 
-  createTask(task_data: Itask) {
+  getTask(task_id: string) {
+    return this.http.get<Itask>(this.apiUrl + '/' + task_id);
+  }
+
+  createTask(task_data: any) {
     return this.http.post<Itask>(this.apiUrl, task_data);
   }
 
-  editTask(task_id: string, task_data: Itask) {
+  editTask(task_id: string, task_data: any) {
     return this.http.put<Itask>(
       this.apiUrl + '/update-task/' + task_id,
       task_data,
