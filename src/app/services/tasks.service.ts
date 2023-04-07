@@ -6,9 +6,26 @@ import { Itask } from '../interfaces/itask';
   providedIn: 'root',
 })
 export class TasksService {
+  apiUrl: string = 'http://localhost:3333/api/tasks';
+
   constructor(private http: HttpClient) {}
 
   getTasks() {
-    return this.http.get<Itask[]>('http://localhost:3333/api/tasks');
+    return this.http.get<Itask[]>(this.apiUrl);
+  }
+
+  createTask(task_data: Itask) {
+    return this.http.post<Itask>(this.apiUrl, task_data);
+  }
+
+  editTask(task_id: string, task_data: Itask) {
+    return this.http.put<Itask>(
+      this.apiUrl + '/update-task/' + task_id,
+      task_data,
+    );
+  }
+
+  deleteTask(task_id: string) {
+    return this.http.delete<Itask>(this.apiUrl + '/' + task_id);
   }
 }
